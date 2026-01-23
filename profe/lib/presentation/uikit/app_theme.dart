@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const Color accent = Color(0x002074f2);
-  static const Color accentInactive = Color(0x00c5d2ff);
-  static const Color black = Color(0x002D2C2C);
-  static const Color white = Color(0x00F7F7F7);
-  static const Color error = Color(0x00FF4646);
-  static const Color success = Color(0x0000B412);
-
-
+  static const Color accent = Color(0xFF2074f2);
+  static const Color accentInactive = Color(0xFFc5d2ff);
+  static const Color secondaryAccent = Color(0xFF73D5BC);
+  static const Color black = Color(0xFF2D2C2C);
+  static const Color white = Color(0xFFF7F7F7);
+  static const Color error = Color(0xFFFF4646);
+  static const Color success = Color(0xFF00B412);
+  static const Color inputIcon = Color(0xFFBFC7D1);
+  static const Color description = Color(0xFF7E7E9A);
+  static const Color inputStroke = Color(0xFFEBEBEB);
+  static const Color caption = Color(0xFF939396);
 }
 
 abstract class AppTexts {
@@ -24,15 +27,31 @@ abstract class AppTexts {
   static const double lineHeightHeadline = 20.0;
   static const double lineHeightText = 15.0;
 
-  static const double fontWeightRegular = 400.0;
-  static const double fontWeightSemibold = 600.0;
+  static const FontWeight fontWeightRegular = FontWeight.w400;
+  static const FontWeight fontWeightSemibold = FontWeight.w600;
+  static const FontWeight fontWeightBold = FontWeight.w700;
+
+
+  static const TextStyle title1_Bold = TextStyle(
+    fontSize: fontSizeTitle1,
+    fontWeight: AppTexts.fontWeightBold,
+    // height: AppTexts.fontSizeTitle1
+  );
+  static const TextStyle text_Regular = TextStyle(
+    fontSize: fontSizeText,
+    fontWeight: fontWeightRegular,
+    // height: lineHeightHeadline
+  );
 }
 
 abstract class AppDimensions {
-  static const double padding1 = 4.0;
-  static const double padding2 = 8.0;
-  static const double padding3 = 16.0;
+  static const double padding4 = 4.0;
+  static const double padding8 = 8.0;
+  static const double padding16 = 16.0;
 
+  static const double padding24 = 24.0;
+  static const double padding32 = 32.0;
+  static const double padding64 = 64.0;
   
 }
 

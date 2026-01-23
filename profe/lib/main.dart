@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profe/presentation/features/auth/register/pages/register_screen.dart';
 import 'package:profe/presentation/features/splash/splash_screen.dart';
 
 void main() async {
@@ -16,7 +17,7 @@ class MatuleApp extends StatelessWidget {
       initialRoute: '/splash',
       routes: {
         '/splash': (context) => const SplashScreen(),
-        // '/auth': (context) => const AuthScreen(),
+        '/register': (context) => const RegisterScreen(),
         // '/home': (context) => const HomeScreen(),
       },
     );
