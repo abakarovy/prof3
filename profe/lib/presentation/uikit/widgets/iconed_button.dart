@@ -3,40 +3,44 @@
 import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 
-class BigButton extends StatelessWidget {
-  final Widget child;
+class IconedButton extends StatelessWidget {
+
+  final Text text;
+  final Widget icon;
   final VoidCallback onPressed;
   final bool enabled;
 
-  const BigButton({
+  const IconedButton({
     super.key,
-    required this.child,
+    required this.text,
+    required this.icon,
     required this.onPressed,
     this.enabled = true,
   });
 
-
   @override
   Widget build(BuildContext context) {
-
     return ElevatedButton(
       onPressed: enabled ? onPressed : null,
-      child: child,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
+          side: BorderSide(color: AppColors.inputStroke, width: 1.25)
         ),
-        minimumSize: Size(335.0, 56.0),
-        maximumSize: Size(double.infinity, double.infinity),
-        backgroundColor: WidgetStateColor.resolveWith((states) {
-          if (states.contains(WidgetState.disabled)) {
-            return AppColors.accentInactive;
-          } 
-            return AppColors.accent;
-          }
-        ),
+        fixedSize: Size(335.0, 56.0),
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        overlayColor: AppColors.inputIcon,
         disabledBackgroundColor: AppColors.accentInactive
       ),
+      child: Row(
+        mainAxisAlignment: .center,
+        spacing: AppDimensions.padding16,
+        children: [
+          icon,
+          text
+        ]
+      ) 
     );
   }
 }

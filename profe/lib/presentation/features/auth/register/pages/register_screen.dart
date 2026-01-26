@@ -1,9 +1,14 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 import 'package:profe/presentation/uikit/widgets/base_button.dart';
+import 'package:profe/presentation/uikit/widgets/base_textfield.dart';
+import 'package:profe/presentation/uikit/widgets/select_widget.dart';
 import 'package:profe/presentation/uikit/widgets/titled_textfield.dart';
 
 class RegisterScreen extends StatefulWidget {
+
   const RegisterScreen({super.key});
 
   @override
@@ -11,61 +16,69 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  String email = "";
-  String password = "";
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Center(
-        child: Padding(
-          padding: EdgeInsetsGeometry.directional(start: AppDimensions.padding32, end: AppDimensions.padding32, top: AppDimensions.padding64),
-          child: Column(
-            spacing: AppDimensions.padding64,
-            children: [
-              Flex(
-                direction: Axis.vertical,
-                spacing: AppDimensions.padding16,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text("🖐️ Добро пожаловать!", style: AppTexts.title1_Bold),
-                  const Text("Войдите, чтобы пользоваться функциями приложения", style: AppTexts.text_Regular,),
-                ],
-              ),
-
-              Flex(
-                direction: Axis.vertical,
-                spacing: AppDimensions.padding16,
-                children: [
-                  TitledTextField(labelText: "Вход по E-mail", hintText: "example@mail.com"),
-                  TitledTextField(labelText: "Пароль", hintText: ""),
-                  BigButton(text: "Продолжить", onPressed: () {
-                    
-                  },),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Зарегестрироваться", style: TextStyle(color: AppColors.accent),),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
+      body: Padding(
+        padding: EdgeInsetsGeometry.directional(start: AppDimensions.padding24, end: AppDimensions.padding24, top: AppDimensions.padding32),
+        child: Column(
+          spacing: AppDimensions.padding32,
+          children: [
+            Flex(
+              direction: Axis.vertical,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: AppDimensions.padding32,
+              children: [
+                Text("Создание профиля", style: TextStyle(fontSize: AppTexts.fontSizeTitle1, fontWeight: AppTexts.fontWeightBold),),
+                Flex(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  direction: Axis.vertical,
+                  spacing: AppDimensions.padding8,
+                  children: [
+                    Text("Без профиля вы не сможете создавать проекты.", style: TextStyle( fontWeight: AppTexts.fontWeightRegular, color: AppColors.caption ),),
+                    Text("В профиле будут храниться результаты проектов и ваши описания.", style: TextStyle( fontWeight: AppTexts.fontWeightRegular, color: AppColors.caption ),)
+                  ],
+                )
+              ],
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Flex(
+                  direction: Axis.vertical,
+                  spacing: AppDimensions.padding24,
+                  children: [
+                    BaseTextField(hintText: "Имя"),
+                    BaseTextField(hintText: "Отчество"),
+                    BaseTextField(hintText: "Фамилия"),
+                    BaseTextField(hintText: "Дата рождения"),
+                    SelectWidget(
+                      entries: [
+                        DropdownMenuEntry(value: "male", label: "Мужской"),
+                        DropdownMenuEntry(value: "female", label: "Женский")
+                      ],
+                      hintText: "Пол"
                     ),
-                  )
-                ],
+                    BaseTextField(hintText: "Почта")
+                  ],
+                )
               ),
-
-              Flex(
-                direction: Axis.vertical,
-                spacing: AppDimensions.padding24,
-                children: [
-                  Text("Или войдите с помощью", style: TextStyle(color: AppColors.caption),),
-                ],
-              )
-
-            ],
-          ),
+              
+            )
+          ],
         ),
-      )
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsetsGeometry.directional(bottom: AppDimensions.padding32, start: AppDimensions.padding24, end: AppDimensions.padding24),
+        child: BigButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed("/createPassword");
+          },
+          child: Text("Далее", style: TextStyle(color: AppColors.white, fontSize: AppTexts.fontSizeTitle3),),
+        ),
+      ),
     );
   }
 }

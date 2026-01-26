@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 
-class BigButton extends StatelessWidget {
+class BorderButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
   final bool enabled;
 
-  const BigButton({
+  const BorderButton({
     super.key,
     required this.child,
     required this.onPressed,
@@ -25,16 +25,12 @@ class BigButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
+          side: BorderSide(color: AppColors.accent)
         ),
-        minimumSize: Size(335.0, 56.0),
-        maximumSize: Size(double.infinity, double.infinity),
-        backgroundColor: WidgetStateColor.resolveWith((states) {
-          if (states.contains(WidgetState.disabled)) {
-            return AppColors.accentInactive;
-          } 
-            return AppColors.accent;
-          }
-        ),
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        overlayColor: AppColors.accentInactive,
+        fixedSize: Size(335.0, 56.0),
         disabledBackgroundColor: AppColors.accentInactive
       ),
     );

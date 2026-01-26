@@ -4,14 +4,20 @@ abstract class AppColors {
   static const Color accent = Color(0xFF2074f2);
   static const Color accentInactive = Color(0xFFc5d2ff);
   static const Color secondaryAccent = Color(0xFF73D5BC);
+  
   static const Color black = Color(0xFF2D2C2C);
   static const Color white = Color(0xFFF7F7F7);
-  static const Color error = Color(0xFFFF4646);
+  static const Color pure = Colors.white;
+  
   static const Color success = Color(0xFF00B412);
-  static const Color inputIcon = Color(0xFFBFC7D1);
+  static const Color error = Color(0xFFFF4646);
+  
   static const Color description = Color(0xFF7E7E9A);
-  static const Color inputStroke = Color(0xFFEBEBEB);
   static const Color caption = Color(0xFF939396);
+
+  static const Color inputStroke = Color(0xFFEBEBEB);
+  static const Color inputBg = Color(0xFFF5F5F9);
+  static const Color inputIcon = Color(0xFFBFC7D1);
 }
 
 abstract class AppTexts {
@@ -48,11 +54,13 @@ abstract class AppDimensions {
   static const double padding4 = 4.0;
   static const double padding8 = 8.0;
   static const double padding16 = 16.0;
-
   static const double padding24 = 24.0;
   static const double padding32 = 32.0;
+  static const double padding40 = 40.0;
+  static const double padding48 = 48.0;
+  static const double padding56 = 56.0;
   static const double padding64 = 64.0;
-  
+
 }
 
 
@@ -62,9 +70,10 @@ abstract class AppTheme {
     return ThemeData(
       colorScheme: const ColorScheme.light(
         primary: AppColors.accent,
-        secondary: AppColors.accentInactive
+        secondary: AppColors.accentInactive,
+        surface: AppColors.pure,
       ),
-      textTheme: TextTheme()
+      textTheme: TextTheme(),
     );
   }
 }
