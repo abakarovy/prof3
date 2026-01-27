@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
-import 'package:profe/presentation/uikit/widgets/base_button.dart';
+import 'package:profe/presentation/uikit/widgets/big_button.dart';
 import 'package:profe/presentation/uikit/widgets/password_textfield.dart';
 
 class PasswordCreateScreen extends StatelessWidget {

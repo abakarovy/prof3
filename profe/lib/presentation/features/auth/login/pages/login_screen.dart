@@ -3,7 +3,7 @@ import 'package:profe/core/utils/validators.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 import 'package:profe/presentation/uikit/components/vk_login_button.dart';
 import 'package:profe/presentation/uikit/components/yandex_login_button.dart';
-import 'package:profe/presentation/uikit/widgets/base_button.dart';
+import 'package:profe/presentation/uikit/widgets/big_button.dart';
 import 'package:profe/presentation/uikit/widgets/password_textfield.dart';
 import 'package:profe/presentation/uikit/widgets/shallow_button.dart';
 import 'package:profe/presentation/uikit/widgets/titled_textfield.dart';
@@ -82,7 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         enabled: submitEnabled,
                         child: Text("Далее",style: TextStyle(color: AppColors.white)),
                       ),
-                      ShallowButton()
+                      ShallowButton(child: Text("Зарегестрироваться", style: TextStyle(color: AppColors.accent),), onPressed: () {
+                        
+                      },)
                     ],
                   ),
                 ),

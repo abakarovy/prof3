@@ -7,11 +7,13 @@ class BigButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
   final bool enabled;
+  final ButtonStyle? style;
 
   const BigButton({
     super.key,
     required this.child,
     required this.onPressed,
+    this.style,
     this.enabled = true,
   });
 
@@ -22,7 +24,7 @@ class BigButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: enabled ? onPressed : null,
       child: child,
-      style: ElevatedButton.styleFrom(
+      style: style ?? ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

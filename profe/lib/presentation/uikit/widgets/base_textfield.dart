@@ -13,7 +13,8 @@ class BaseTextField extends StatelessWidget {
     super.key, 
     this.controller,
     this.validator,
-    required this.hintText});
+    required this.hintText
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -9,12 +9,14 @@ class IconedButton extends StatelessWidget {
   final Widget icon;
   final VoidCallback onPressed;
   final bool enabled;
+  final ButtonStyle? style;
 
   const IconedButton({
     super.key,
     required this.text,
     required this.icon,
     required this.onPressed,
+    this.style,
     this.enabled = true,
   });
 
@@ -22,7 +24,7 @@ class IconedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: enabled ? onPressed : null,
-      style: ElevatedButton.styleFrom(
+      style: style ?? ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: BorderSide(color: AppColors.inputStroke, width: 1.25)

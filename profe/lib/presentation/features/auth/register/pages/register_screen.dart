@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
-import 'package:profe/presentation/uikit/widgets/base_button.dart';
+import 'package:profe/presentation/uikit/widgets/big_button.dart';
 import 'package:profe/presentation/uikit/widgets/base_textfield.dart';
 import 'package:profe/presentation/uikit/widgets/select_widget.dart';
 import 'package:profe/presentation/uikit/widgets/titled_textfield.dart';

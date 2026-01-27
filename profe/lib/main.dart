@@ -3,6 +3,8 @@ import 'package:profe/presentation/features/auth/register/pages/create_code_scre
 import 'package:profe/presentation/features/auth/register/pages/password_create_screen.dart';
 import 'package:profe/presentation/features/auth/register/pages/register_screen.dart';
 import 'package:profe/presentation/features/auth/login/pages/login_screen.dart';
+import 'package:profe/presentation/features/main/pages/main_screen.dart';
+import 'package:profe/presentation/uikit/components/profile/pages/profile_page.dart';
 import 'package:profe/presentation/features/splash/splash_screen.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 
@@ -18,7 +20,7 @@ class MatuleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/splash',
+      initialRoute: '/profile',
       theme: AppTheme.lightTheme,
       routes: {
         '/splash': (context) => const SplashScreen(),
@@ -26,7 +28,8 @@ class MatuleApp extends StatelessWidget {
         '/register': (context) => const RegisterScreen(),
         '/createPassword': (context) => const PasswordCreateScreen(),
         '/createCode': (context) => const CreateCodeScreen(),
-        // '/home': (context) => const HomeScreen(),
+        '/profile': (context) => const MainScreen(currentTab: 3,),
+        '/home': (context) => const MainScreen(currentTab: 0,),
       },
     );
   }
