@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:profe/presentation/uikit/app_theme.dart';
 import 'package:profe/presentation/uikit/widgets/big_button.dart';
 import 'package:profe/presentation/uikit/widgets/iconed_button.dart';
+import 'package:profe/presentation/uikit/widgets/image_picker.dart';
 import 'package:profe/presentation/uikit/widgets/my_orders_icon.dart';
 import 'package:profe/presentation/uikit/widgets/settings_icon.dart';
 import 'package:profe/presentation/uikit/widgets/shallow_button.dart';
@@ -89,7 +90,8 @@ class ProfilePage extends StatelessWidget {
                 ShallowButton(
                   onPressed: () {},
                   child: Text("Выход", style: TextStyle(color: AppColors.error, fontWeight: AppTexts.fontWeightRegular)),
-                )
+                ),
+                ImagePickerWidget()
               ],
             )
           )

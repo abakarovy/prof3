@@ -20,7 +20,7 @@ class MatuleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/profile',
+      initialRoute: '/splash',
       theme: AppTheme.lightTheme,
       routes: {
         '/splash': (context) => const SplashScreen(),

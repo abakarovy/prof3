@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:profe/presentation/uikit/app_theme.dart';
 import 'package:profe/presentation/uikit/components/profile/pages/profile_page.dart';
-import 'package:profe/presentation/uikit/widgets/bottom_app_bar.dart';
 
 class MainScreen extends StatefulWidget {
   final int? currentTab;
@@ -12,17 +13,9 @@ class MainScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _MainScreenState();
 }
 
-
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   late PageController _pageController;
-
-  final Map<int, String> _tabRoutes = {
-    0: "/home",
-    1: "/catalog",
-    2: "/projects",
-    3: "/profile"
-  };
 
   @override
   void initState() {
@@ -41,21 +34,45 @@ class _MainScreenState extends State<MainScreen> {
             _currentIndex = index;
           });
         },
-        children: [
-          Text("home"),
-          Text("catalog"),
-          Text("projects"),
-          ProfilePage()
+        children: const [
+          Center(child: Text("home")),
+          Center(child: Text("catalog")),
+          Center(child: Text("projects")),
+          ProfilePage(),
         ],
       ),
-      bottomNavigationBar: BottomAppBarWidget(onSelected: (index) {
-        _pageController.jumpToPage(index);
-        // Navigator.pushNamedAndRemoveUntil(
-        //   context, 
-        //   _tabRoutes[index]!,
-        //   (route) => route.isFirst
-        // );
-      }),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppColors.pure,
+        selectedItemColor: AppColors.accent,
+        unselectedItemColor: AppColors.caption,
+        showUnselectedLabels: true,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+          _pageController.jumpToPage(index);
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset("assets/icons/home_icon.svg"),
+            label: "Главная",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category_outlined),
+            label: "Каталог",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work_outline),
+            label: "Проекты",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: "Профиль",
+          ),
+        ],
+      ),
     );
   }
 }

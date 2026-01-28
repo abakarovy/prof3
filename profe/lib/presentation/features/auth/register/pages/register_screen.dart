@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Padding(
+      body: SafeArea(child: Padding(
         padding: EdgeInsetsGeometry.directional(start: AppDimensions.padding24, end: AppDimensions.padding24, top: AppDimensions.padding32),
         child: Column(
           spacing: AppDimensions.padding32,
@@ -69,8 +69,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: Padding(
+      ),),
+      bottomNavigationBar: SafeArea(child: Padding(
         padding: EdgeInsetsGeometry.directional(bottom: AppDimensions.padding32, start: AppDimensions.padding24, end: AppDimensions.padding24),
         child: BigButton(
           onPressed: () {
@@ -78,7 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           },
           child: Text("Далее", style: TextStyle(color: AppColors.white, fontSize: AppTexts.fontSizeTitle3),),
         ),
-      ),
+      ),)
     );
   }
 }

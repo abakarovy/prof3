@@ -2,24 +2,24 @@
 
 import 'package:flutter/material.dart';
 
-class BottomAppBarWidget extends StatelessWidget {
-  int? selectedIndex;
-  ValueChanged<int> onSelected;
+class BottomNavBarWidget extends StatefulWidget {
+  final int? selectedIndex;
+  final ValueChanged<int> onSelected;
 
-  BottomAppBarWidget({super.key, this.selectedIndex, required this.onSelected});
+  const BottomNavBarWidget({super.key, this.selectedIndex, required this.onSelected});
+
+  @override
+  State<StatefulWidget> createState() => _BottomNavBarWidgetState();
+}
+
+
+class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      selectedIndex: selectedIndex ?? 0,
-      onDestinationSelected: onSelected,
-      destinations: [
-        NavigationDestination(icon: Icon(Icons.home_outlined), label: "Главная"),
-        NavigationDestination(icon: Icon(Icons.home_outlined), label: "Главная"),
-        NavigationDestination(icon: Icon(Icons.home_outlined), label: "Главная"),
-        NavigationDestination(icon: Icon(Icons.home_outlined), label: "Главная")
-      ],
-      
+    
+    return Container(
+
     );
   }
 }
